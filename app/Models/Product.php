@@ -10,4 +10,15 @@ class Product extends Model
     use HasFactory;
 
     protected $guarded = []; //In Laravel, fillable attributes are used to specify those fields which are to be mass assigned. Guarded attributes are used to specify those fields which are not mass assignable.
+
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id','id');
+    }
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class, 'brand_id','id');
+    }
 }

@@ -1,6 +1,6 @@
 @php
-  $prefix = Request::route()->getPrefix();
-  $route = Route::current()->getName();
+$prefix = Request::route()->getPrefix();
+$route = Route::current()->getName();
 @endphp
 
 <aside class="main-sidebar">
@@ -54,8 +54,8 @@
         </a>
         <ul class="treeview-menu">
           <li class="{{ ($route == 'view.category') ? 'active' : '' }}"><a href="{{ route('view.category') }}"><i class="ti-more"></i>All Category</a></li>
-          <li  class="{{ ($route == 'view.subcategory') ? 'active' : '' }}"><a  href="{{ route('view.subcategory') }}"><i class="ti-more"></i>All SubCategory</a></li>
-          <li  class="{{ ($route == 'view.subsubcategory') ? 'active' : '' }}"><a  href="{{ route('view.subsubcategory') }}"><i class="ti-more"></i>All Sub->SubCategory</a></li>
+          <li class="{{ ($route == 'view.subcategory') ? 'active' : '' }}"><a href="{{ route('view.subcategory') }}"><i class="ti-more"></i>All SubCategory</a></li>
+          <li class="{{ ($route == 'view.subsubcategory') ? 'active' : '' }}"><a href="{{ route('view.subsubcategory') }}"><i class="ti-more"></i>All Sub->SubCategory</a></li>
           <li><a href="mailbox_compose.html"><i class="ti-more"></i>Compose</a></li>
           <li><a href="mailbox_read_mail.html"><i class="ti-more"></i>Read</a></li>
         </ul>
@@ -70,10 +70,25 @@
           </span>
         </a>
         <ul class="treeview-menu">
-        <li class="{{ ($route == 'view.subcategory') ? 'active' : '' }}"><a href="{{ route('add-product') }}"><i class="ti-more"></i>Add Products</a></li>
-          <li><a href="invoice.html"><i class="ti-more"></i>Manage Products</a></li>
+          <li class="{{ ($route == 'view.subcategory') ? 'active' : '' }}"><a href="{{ route('add-product') }}"><i class="ti-more"></i>Add Products</a></li>
+          <li class="{{ ($route == 'manage-product') ? 'active' : '' }}"><a href="{{ route('manage-product') }}"><i class="ti-more"></i>Manage Products</a></li>
         </ul>
       </li>
+
+      
+      <li class="treeview {{ ($prefix == '/slider') ? 'active' : '' }}">
+        <a href="#">
+          <i data-feather="file"></i>
+          <span>Slider</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="{{ ($route == 'manage-slider') ? 'active' : '' }}"><a href="{{ route('manage-slider') }}"><i class="ti-more"></i>Manage Slider</a></li>
+        </ul>
+      </li>
+
 
       <li class="header nav-small-cap">User Interface</li>
 

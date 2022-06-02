@@ -38,7 +38,6 @@ class CategoryController extends Controller
             'message' => 'Category Inserted Successfully',
             'alert-type' => 'success'
         );
-
         return redirect()->back()->with($notification);
     }
 
@@ -48,11 +47,9 @@ class CategoryController extends Controller
         return view('backend.category.category_edit', compact('category'));
     }
 
-    public function CategoryUpdate(Request $request)
+    public function CategoryUpdate(Request $request, $id)
     {
-        $cat_id = $request->id;
-
-        Category::findOrFail($cat_id)->update([
+        Category::findOrFail($id)->update([
             'category_name_en' => $request->category_name_en,
             'category_name_hin' => $request->category_name_hin,
             'category_slug_en' => strtolower(str_replace(' ', '-', $request->category_name_en)),
@@ -64,9 +61,7 @@ class CategoryController extends Controller
             'message' => 'Category Updated Successfully',
             'alert-type' => 'success'
         );
-
         return redirect()->route('view.category')->with($notification);
-       
     }
 
     public function CategoryDelete($id)
@@ -77,7 +72,6 @@ class CategoryController extends Controller
             'message' => 'Category Deleted Successfully',
             'alert-type' => 'success'
         );
-
         return redirect()->back()->with($notification);
     }
 }
